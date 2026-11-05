@@ -24,7 +24,7 @@ const list = customers as Customer[];
 function splitName(name: string) {
   const m = name.match(/^([^(]+)\((.+?)\)\s*(?:\((\d+)\))?/);
   if (!m) return { city: "", shop: name, code: "" };
-  return { city: m[1].trim(), shop: m[2].trim(), code: m[3] ?? "" };
+  return { city: (m[1] ?? "").trim(), shop: (m[2] ?? name).trim(), code: m[3] ?? "" };
 }
 
 function Index() {
