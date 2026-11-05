@@ -19,6 +19,10 @@ export function getCityOptions(customers: Customer[]) {
   return [...counts].sort(([a], [b]) => a.localeCompare(b)).map(([city, count]) => ({ city, count }));
 }
 
+export function hasPhone(customer: Customer) {
+  return customer.phone.replace(/\D/g, "").length > 0;
+}
+
 export function filterCustomers(customers: Customer[], query: string, city: string) {
   const search = query.trim().toLowerCase();
   const digits = search.replace(/\D/g, "");

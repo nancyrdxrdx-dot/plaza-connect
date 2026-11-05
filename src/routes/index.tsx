@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Phone, Search, X, Users, PhoneOff, MapPin } from "lucide-react";
+import { Phone, Search, X, Users, MapPin } from "lucide-react";
 import customers from "@/data/customers.json";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
