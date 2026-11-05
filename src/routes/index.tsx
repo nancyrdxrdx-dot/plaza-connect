@@ -48,9 +48,9 @@ function Index() {
         <div className="animate-blob absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-primary/15 blur-3xl [animation-delay:-9s]" />
       </div>
 
-      <header className="mx-auto max-w-5xl px-4 pt-10 text-center">
-        <img src={logo} alt="Plaza Customers logo" width={1024} height={1024} className="animate-float mx-auto h-24 w-24 drop-shadow-2xl" />
-        <h1 className="animate-rise mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+      <header className="mx-auto max-w-5xl px-4 pt-6 text-center sm:pt-10">
+        <img src={logo} alt="Plaza Customers logo" width={1024} height={1024} className="animate-float mx-auto h-16 w-16 drop-shadow-2xl sm:h-24 sm:w-24" />
+        <h1 className="animate-rise mt-3 text-3xl font-extrabold tracking-tight sm:mt-4 sm:text-5xl">
           <span className="text-brand">Plaza</span> Customers
         </h1>
         <p className="animate-rise mt-2 text-muted-foreground [animation-delay:.1s]">
@@ -61,16 +61,16 @@ function Index() {
         </div>
       </header>
 
-      <div className="sticky top-0 z-20 mx-auto max-w-5xl px-4 py-5">
+      <div className="sticky top-0 z-20 mx-auto max-w-5xl px-3 py-3 sm:px-4 sm:py-5">
         <div className="group relative animate-rise [animation-delay:.3s]">
           <div className="bg-brand absolute -inset-0.5 rounded-2xl opacity-40 blur transition group-focus-within:opacity-90" />
-          <div className="relative flex items-center gap-3 rounded-2xl border bg-card/90 px-4 backdrop-blur-xl">
-            <Search className="h-5 w-5 text-muted-foreground transition group-focus-within:scale-110 group-focus-within:text-primary" />
+          <div className="relative flex items-center gap-2 rounded-2xl border bg-card/90 px-3 backdrop-blur-xl sm:gap-3 sm:px-4">
+            <Search className="h-5 w-5 shrink-0 text-muted-foreground transition group-focus-within:scale-110 group-focus-within:text-primary" />
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search name, city or number..."
-              className="h-14 w-full bg-transparent text-lg outline-none placeholder:text-muted-foreground"
+              className="h-12 w-full min-w-0 bg-transparent text-base outline-none placeholder:text-muted-foreground sm:h-14 sm:text-lg"
             />
             {q && (
               <button onClick={() => setQ("")} aria-label="Clear search" className="rounded-full p-1 text-muted-foreground transition hover:rotate-90 hover:text-foreground">
@@ -82,7 +82,7 @@ function Index() {
         <p className="mt-2 text-center text-xs text-muted-foreground">{results.length} result{results.length !== 1 && "s"}</p>
       </div>
 
-      <main className="mx-auto grid max-w-5xl gap-3 px-4 pb-16 sm:grid-cols-2 lg:grid-cols-3">
+      <main className="mx-auto grid max-w-5xl gap-2.5 px-3 pb-16 sm:gap-3 sm:px-4 sm:grid-cols-2 lg:grid-cols-3">
         {results.map((c, i) => {
           const { city, shop, code } = splitName(c.name);
           const has = !!c.phone;
@@ -90,30 +90,30 @@ function Index() {
             <div
               key={c.id + q}
               style={{ animationDelay: `${Math.min(i, 20) * 30}ms` }}
-              className="animate-rise group relative flex items-center gap-3 rounded-2xl border bg-card/70 p-4 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow"
+              className="animate-rise group relative flex items-center gap-2.5 rounded-2xl border bg-card/70 p-3 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow sm:gap-3 sm:p-4"
             >
-              <div className="bg-brand flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-lg font-bold text-primary-foreground transition group-hover:rotate-6 group-hover:scale-110">
+              <div className="bg-brand flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-base font-bold text-primary-foreground transition group-hover:rotate-6 group-hover:scale-110 sm:h-12 sm:w-12 sm:text-lg">
                 {shop.charAt(0)}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate font-semibold">{shop}</p>
+                <p className="truncate text-sm font-semibold sm:text-base">{shop}</p>
                 {city && (
                   <p className="flex items-center gap-1 truncate text-xs text-muted-foreground">
-                    <MapPin className="h-3 w-3" /> {city} {code && <span className="rounded bg-muted px-1.5">#{code}</span>}
+                    <MapPin className="h-3 w-3 shrink-0" /> <span className="truncate">{city}</span> {code && <span className="shrink-0 rounded bg-muted px-1.5">#{code}</span>}
                   </p>
                 )}
-                <p className="mt-0.5 font-mono text-sm text-primary">{c.phone || "No number"}</p>
+                <p className="mt-0.5 truncate font-mono text-xs text-primary sm:text-sm">{c.phone || "No number"}</p>
               </div>
               {has ? (
                 <a
                   href={`tel:${c.phone.replace(/[^\d+]/g, "")}`}
                   aria-label={`Call ${shop}`}
-                  className="bg-brand animate-pulse-ring flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-primary-foreground transition hover:scale-110 active:scale-95"
+                  className="bg-brand animate-pulse-ring flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-primary-foreground transition hover:scale-110 active:scale-95 sm:h-12 sm:w-12"
                 >
                   <Phone className="h-5 w-5 group-hover:animate-ring" />
                 </a>
               ) : (
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground sm:h-12 sm:w-12">
                   <PhoneOff className="h-5 w-5" />
                 </div>
               )}
