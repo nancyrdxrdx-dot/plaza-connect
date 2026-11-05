@@ -48,9 +48,9 @@ function Index() {
         <div className="animate-blob absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-primary/15 blur-3xl [animation-delay:-9s]" />
       </div>
 
-      <header className="mx-auto max-w-5xl px-4 pt-10 text-center">
-        <img src={logo} alt="Plaza Customers logo" width={1024} height={1024} className="animate-float mx-auto h-24 w-24 drop-shadow-2xl" />
-        <h1 className="animate-rise mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+      <header className="mx-auto max-w-5xl px-4 pt-6 text-center sm:pt-10">
+        <img src={logo} alt="Plaza Customers logo" width={1024} height={1024} className="animate-float mx-auto h-16 w-16 drop-shadow-2xl sm:h-24 sm:w-24" />
+        <h1 className="animate-rise mt-3 text-3xl font-extrabold tracking-tight sm:mt-4 sm:text-5xl">
           <span className="text-brand">Plaza</span> Customers
         </h1>
         <p className="animate-rise mt-2 text-muted-foreground [animation-delay:.1s]">
