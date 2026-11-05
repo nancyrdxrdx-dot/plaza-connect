@@ -145,6 +145,24 @@
     font-family: "Manrope", system-ui, sans-serif;
   }
   h1, h2, h3 { font-family: "Sora", sans-serif; }
+  body { margin: 0; min-width: 0; }
+  * { letter-spacing: 0; }
+}
+
+.directory-page {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+.directory-controls { top: env(safe-area-inset-top, 0px); }
+.directory-results { padding-bottom: max(4rem, env(safe-area-inset-bottom, 0px)); }
+@media (max-height: 500px) {
+  .directory-controls { position: relative; top: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .directory-page *, .directory-page *::before, .directory-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 @utility bg-brand { background-image: var(--gradient-brand); }

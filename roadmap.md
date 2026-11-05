@@ -1,0 +1,3 @@
+- [x] Add city filtering that combines with customer and number search.
+- [x] Adapt customer details and controls to mobile widths and short landscape screens.
+- [x] Verify filtering and layouts with tests and phone-size browser checks.
