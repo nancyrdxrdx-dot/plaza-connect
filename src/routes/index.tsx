@@ -67,8 +67,8 @@ function Index() {
         </div>
         <div className="mt-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
           <Select value={city} onValueChange={setCity}>
-            <SelectTrigger aria-label="Filter by city" className="h-11 min-w-0 gap-2 bg-card text-base [&>span]:min-w-0 [&>span]:truncate [&>svg]:shrink-0">
-              <span className="flex min-w-0 items-center gap-2"><MapPin className="h-4 w-4 shrink-0 text-primary" /><SelectValue /></span>
+            <SelectTrigger aria-label="Filter by city" className="h-11 min-w-0 gap-2 bg-card text-base [&>span]:min-w-0 [&>span]:flex-1 [&>span]:truncate [&>span]:text-left [&>svg]:shrink-0">
+              <MapPin className="h-4 w-4 shrink-0 text-primary" /><SelectValue />
             </SelectTrigger>
             <SelectContent className="max-h-72 w-[var(--radix-select-trigger-width)] max-w-[calc(100vw-1.5rem)]">
               <SelectItem value="all">All cities ({list.length})</SelectItem>
